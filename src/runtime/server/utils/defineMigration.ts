@@ -1,13 +1,13 @@
-import { Kysely } from 'kysely'
+import type { Kysely } from 'kysely'
 
 type MigrationFunction = (db: Kysely<any>) => Promise<void>
 
 type Migration = {
-	version: number
-	name: string
-	database?: string
-	up: MigrationFunction
-	down: MigrationFunction
+  version: number
+  name: string
+  database?: string
+  up: MigrationFunction
+  down: MigrationFunction
 }
 
 export const defineMigration = (migration: Migration) => {

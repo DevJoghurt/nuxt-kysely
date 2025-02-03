@@ -42,19 +42,14 @@ export default {
 
 Once the module is installed and configured, you can use Kysely in your Nuxt application as follows:
 
-```js
-import { useKysely } from 'nuxt-kysely'
+```ts
 
-export default {
-  async asyncData({ $kysely }) {
-    const users = await $kysely
-      .selectFrom('users')
-      .selectAll()
-      .execute()
+const { db } = useDatabase()
+db.selectFrom('person')
+  .where('id', 'is', 1)
+  .selectAll()
+  .executeTakeFirst()
 
-    return { users }
-  }
-}
 ```
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
