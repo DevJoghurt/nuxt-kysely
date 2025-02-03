@@ -29,7 +29,7 @@ export const useDatabase = () => {
     _db = new Kysely<KyselyGeneratedDB>({
       dialect: new LibsqlDialect({
         client: client,
-       }),
+      }),
     })
 
     return _db
