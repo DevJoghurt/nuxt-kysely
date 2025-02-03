@@ -33,6 +33,7 @@
     "kysely": "^0.27.5",
     "globby": "14.0.2",
     "@libsql/client": "^0.14.0",
+    "@libsql/kysely-libsql": "^0.4.1",
     "kysely-codegen": "^0.17.0",
     "pathe": "^2.0.2"
   },

@@ -7,7 +7,7 @@ import {
 import { createClient, type Client } from '@libsql/client'
 import { dirname } from 'pathe'
 import { consola } from 'consola'
-import { LibsqlDialect } from './libs/KyselyLibsql'
+import { LibsqlDialect } from '@libsql/kysely-libsql'
 import {
   useRuntimeConfig,
   $useDatabaseMigrations,
