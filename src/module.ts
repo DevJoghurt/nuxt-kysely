@@ -12,16 +12,6 @@ export interface ModuleOptions {
   dir: string
 }
 
-export interface ModuleHooks {
-  /**
-   * Hook that is called when the database migration is done
-   *
-   * @param tailwindConfig
-   * @returns
-   */
-  'kysely:migration:done': () => void
-}
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-kysely',
@@ -38,10 +28,10 @@ export default defineNuxtModule<ModuleOptions>({
 
     _nuxt.options.runtimeConfig = _nuxt.options.runtimeConfig || {}
     _nuxt.options.runtimeConfig.database = {
-      file: join(_nuxt.options.srcDir, `.data/default.sqlite`),
+      file: join(_nuxt.options.rootDir, `.data/default.sqlite`),
     }
 
-    await createDatabaseMigrationComposable(_nuxt.options.srcDir, _options.dir)
+    await createDatabaseMigrationComposable(_nuxt.options.serverDir, _options.dir)
 
     // add migrations composable
     addServerImports([{

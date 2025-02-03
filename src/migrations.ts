@@ -15,7 +15,7 @@ type MigrationFile = {
 
 async function getMigrationFiles(cwd: string, dir: string) {
   const migrationFiles = [] as MigrationFile[]
-  const files = await globby(`server/${dir}/migrations/**/*.{ts,js,mjs}`, {
+  const files = await globby(`${dir}/migrations/**/*.{ts,js,mjs}`, {
     cwd: cwd,
     deep: 2,
   })
