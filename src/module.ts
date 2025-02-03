@@ -49,6 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
       name: 'DB',
       as: 'KyselyGeneratedDB',
       from: resolver.resolve(_nuxt.options.buildDir, 'types', 'kysely-generated'),
+      type: true
     }])
 
     /*

@@ -10,8 +10,7 @@ import { consola } from 'consola'
 import { LibsqlDialect } from '@libsql/kysely-libsql'
 import {
   useRuntimeConfig,
-  $useDatabaseMigrations,
-  type KyselyGeneratedDB,
+  $useDatabaseMigrations
 } from '#imports'
 
 export const useDatabase = () => {

@@ -1,6 +1,6 @@
 {
   "name": "nuxt-kysely",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Nuxt Kysely is a Nuxt module that integrates Kysely, a type-safe SQL query builder for TypeScript, into your Nuxt application.",
   "repository": "your-org/my-module",
   "license": "MIT",
