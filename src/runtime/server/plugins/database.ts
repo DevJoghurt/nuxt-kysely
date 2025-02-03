@@ -28,7 +28,7 @@ export default defineNitroPlugin(async (nitro) => {
     dialect,
   })
 
-  const cM = countMigrations('default')
+  consola.info(`Found ${countMigrations('default')} database migrations`)
 
   const provider = getMigrationProvider('default')
 
@@ -46,7 +46,4 @@ export default defineNitroPlugin(async (nitro) => {
       consola.error(`failed to execute migration "${it.migrationName}"`)
     }
   }
-
-
-  consola.info(`Found ${cM} database migrations`)
 })
