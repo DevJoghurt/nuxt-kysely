@@ -11,11 +11,11 @@ import { LibsqlDialect } from '@libsql/kysely-libsql'
 import {
   useRuntimeConfig,
   $useDatabaseMigrations,
+  type KyselyGeneratedDB,
 } from '#imports'
-import type { DB } from '#kysely/database'
 
 export const useDatabase = () => {
-  let _db: Kysely<DB> | null = null
+  let _db: Kysely<KyselyGeneratedDB> | null = null
   let client: Client | null = null
 
   const createDatabase = () => {
@@ -26,8 +26,10 @@ export const useDatabase = () => {
       url: pathToFileURL(database.file).toString(),
     })
 
-    _db = new Kysely<DB>({
-      dialect: new LibsqlDialect({ client }),
+    _db = new Kysely<KyselyGeneratedDB>({
+      dialect: new LibsqlDialect({
+        client: client,
+       }),
     })
 
     return _db
@@ -38,7 +40,7 @@ export const useDatabase = () => {
     const provider = getMigrationProvider('default')
 
     const migrator = new Migrator({
-      db: _db as Kysely<DB>,
+      db: _db as Kysely<KyselyGeneratedDB>,
       provider,
     })
 
