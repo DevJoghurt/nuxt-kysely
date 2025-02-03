@@ -14,15 +14,11 @@ import {
 } from '#imports'
 import type { DB } from '#kysely/database'
 
-type DatabaseOptions = {
-
-}
-
 export const useDatabase = () => {
   let _db: Kysely<DB> | null = null
   let client: Client | null = null
 
-  const createDatabase = (options?: DatabaseOptions) => {
+  const createDatabase = () => {
     const { database } = useRuntimeConfig()
     mkdirSync(dirname(database.file), { recursive: true })
 
