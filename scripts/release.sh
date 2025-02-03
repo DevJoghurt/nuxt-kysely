@@ -6,7 +6,7 @@ set -xe
 git restore --source=HEAD --staged --worktree -- package.json yarn.lock
 
 # Resolve yarn
-yarn install --frozen-lockfile=false
+#/yarn install --frozen-lockfile=false
 
 # Update token
 if [[ ! -z ${NPM_TOKEN} ]] ; then
