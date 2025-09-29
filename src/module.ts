@@ -40,7 +40,7 @@ export default defineNuxtModule<ModuleOptions>({
       outFile: generatedTypesPath,
     })
 
-    // add migrations composable
+    // add migrations composable + global types
     addServerImports([{
       name: 'useDatabaseMigrations',
       as: '$useDatabaseMigrations',
@@ -51,16 +51,5 @@ export default defineNuxtModule<ModuleOptions>({
       from: resolver.resolve(_nuxt.options.buildDir, 'types', 'kysely-generated'),
       type: true
     }])
-
-    /*
-    _nuxt.hook('nitro:config', (nitroConfig) => {
-      nitroConfig.alias = nitroConfig.alias || {}
-      nitroConfig.alias['#kysely/database'] = resolver.resolve(_nuxt.options.buildDir, 'types', 'kysely-database')
-    })
-
-    _nuxt.hook('prepare:types', ({ references }) => {
-      references.push({ path: typesOutPath })
-    })
-      */
   },
 })
